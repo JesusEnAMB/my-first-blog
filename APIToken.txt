@@ -1,0 +1,21 @@
+985fd67cfd51bf22a9b242ebc3a2970089ec989c
+
+Use this token for our API by setting a request header called Authorization, followed by Token <token>, eg:
+
+import requests
+username = 'pythonexmp'
+token = '985fd67cfd51bf22a9b242ebc3a2970089ec989c'
+
+response = requests.get(
+    'https://www.pythonanywhere.com/api/v0/user/{username}/cpu/'.format(
+        username=username
+    ),
+    headers={'Authorization': 'Token {token}'.format(token=token)}
+)
+if response.status_code == 200:
+    print('CPU quota info:')
+    print(response.content)
+else:
+    print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
+                        
+TIP: Your API token is also available from pythonanywhere consoles, tasks and webapps, as an Environment Variable, $API_TOKEN
