@@ -1,5 +1,4 @@
-{% extends 'blog/base.html' %}
-<!-- {% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,28 +15,15 @@
             </div>
         </header>
 
-        
         <main class="container">
             <div class="row">
-                <div class="col"> 
-        -->
-        {% block content %}
-            {% for post in posts %}
-                <article class="post">
-                    <time class="date">
-                        published: {{post.published_date }}
-                    </time>
-                    <!-- <h2><a href="">{{post.title }}></a></h2> -->
-                     <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </article>
-            {% endfor %}
-        {% endblock %}
-        <!--
+                <div class="col">
+                    {% block content %}                        
+                    {% endblock %}
                 </div>
             </div>
-        </main> 
+        </main>
         
 
     </body>
-</html> -->
+</html>
